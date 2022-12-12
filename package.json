@@ -4,7 +4,7 @@
   "description": "GitHub Actions action that install the XenForo engine",
   "main": "index.js",
   "scripts": {
-    "build": "ncc build src/index.ts --minify",
+    "build": "ncc build src/index.ts --minify --source-map",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
