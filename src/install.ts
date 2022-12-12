@@ -32,7 +32,7 @@ async function downloadAndExtractDistro() {
     })
 
     await decompress(resp.data, '.')
-    await exec('mv', ['upload/*', '.'])
+    await exec('mv upload/* .')
     // await io.mv('upload/*', '.')
     await io.rmRF('upload')
 }
