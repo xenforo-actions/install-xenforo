@@ -3,7 +3,7 @@ description: 'Installs XenForo with specified configuration'
 inputs:
   path:
     description: 'Installation path (default: ~/xenforo/)'
-    default: ${{ home }}/xenforo
+    default: '~/xenforo/'
   distUrl:
     description: 'XenForo installation archive URL. KEEP IT SECRET!'
     required: true
