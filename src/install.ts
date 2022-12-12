@@ -40,6 +40,7 @@ async function downloadAndExtractDistro() {
     const dst = jetpack.cwd(process.cwd())
     let files = await src.findAsync({ directories: true, recursive: true })
     files.forEach(filePath => {
+        core.info(filePath)
         src.move(filePath, dst.path(filePath), {
             overwrite: true
         })
