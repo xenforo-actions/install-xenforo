@@ -3,14 +3,14 @@ description: 'Installs XenForo with specified configuration'
 inputs:
   path:
     description: 'Installation path (default: ~/xenforo/)'
-    default: '~/xenforo/'
+    default: ~/xenforo/
   distUrl:
     description: 'XenForo installation archive URL. KEEP IT SECRET!'
     required: true
 
   username:
     description: 'Name of the administrator user (default: Admin)'
-    default: 'Admin'
+    default: Admin
   password:
     description: 'Password of the administrator user'
     required: true
@@ -20,14 +20,14 @@ inputs:
 
   boardTitle:
     description: 'Board title (default: XenForo)'
-    default: 'XenForo'
+    default: XenForo
   boardUrl:
     description: 'Board URL (default: http://localhost)'
-    default: 'http://localhost'
+    default: http://localhost
 
   dbHost:
     description: 'Database host'
-    default: 'localhost'
+    default: 127.0.0.1
   dbUsername:
     description: 'Database user'
     required: true
