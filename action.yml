@@ -15,8 +15,8 @@ inputs:
     description: 'Password of the administrator user'
     required: true
   email:
-    description: 'Primary board email and email for administrator user (default: (admin@local.host))'
-    default: admin@local.host
+    description: 'Primary board email and email for administrator user (default: (ci@xenforo.local))'
+    default: ci@xenforo.local
 
   boardTitle:
     description: 'Board title (default: XenForo)'
