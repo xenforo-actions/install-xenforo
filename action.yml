@@ -28,7 +28,7 @@ inputs:
   dbHost:
     description: 'Database host'
     default: 'localhost'
-  dbUser:
+  dbUsername:
     description: 'Database user'
     required: true
   dbPassword:

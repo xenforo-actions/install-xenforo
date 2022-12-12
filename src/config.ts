@@ -32,10 +32,10 @@ export class Config {
         return new Config(
             {
                 host: core.getInput('dbHost'),
-                port: parseInt(core.getInput('dbHost')),
-                username: core.getInput('dbHost'),
-                password: core.getInput('dbHost'),
-                dbname: core.getInput('dbHost'),
+                port: parseInt(core.getInput('dbPort')),
+                username: core.getInput('dbUsername'),
+                password: core.getInput('dbPassword'),
+                dbname: core.getInput('dbName'),
             },
             core.getBooleanInput('debugMode'),
             core.getBooleanInput('devMode')
