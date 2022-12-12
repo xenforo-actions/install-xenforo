@@ -1,0 +1,38 @@
+name: 'Test the Action'
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install MySQL
+        uses: mirromutth/mysql-action@v1.1
+        with:
+          mysql user: 'xenforo'
+          mysql password: 'xenforo'
+          mysql database: 'xenforo'
+
+      - name: Wait for MySQL
+        run: |
+          while ! mysqladmin ping --host=127.0.0.1 --user=xenforo --password=xenforo --silent; do
+            sleep 1
+          done
+
+      - name: Install XenForo
+        uses: ./
+        with:
+          distUrl: ${{ secrets.XF_DISTRO }}
+          password: 123123
+          dbUser: xenforo
+          dbPassword: xenforo
+          dbName: xenforo
+
+      - name: Print current directory
+        run: pwd

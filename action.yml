@@ -1,0 +1,53 @@
+name: 'Install XenForo'
+description: 'Installs XenForo with specified configuration'
+inputs:
+  path:
+    description: 'Installation path (default: ~/xenforo/)'
+    default: '~/xenforo/'
+  distUrl:
+    description: 'XenForo installation archive URL. KEEP IT SECRET!'
+    required: true
+
+  username:
+    description: 'Name of the administrator user (default: Admin)'
+    default: 'Admin'
+  password:
+    description: 'Password of the administrator user'
+    required: true
+  email:
+    description: 'Primary board email and email for administrator user (default: (admin@localhost))'
+    default: admin@localhost
+
+  boardTitle:
+    description: 'Board title (default: XenForo)'
+    default: 'XenForo'
+  boardUrl:
+    description: 'Board URL (default: http://localhost)'
+    default: 'http://localhost'
+
+  dbHost:
+    description: 'Database host'
+    default: 'localhost'
+  dbUser:
+    description: 'Database user'
+    required: true
+  dbPassword:
+    description: 'Database password'
+    required: true
+  dbPort:
+    description: 'Database port'
+    default: '3306'
+  dbName:
+    description: 'Database name'
+    required: true
+
+  debugMode:
+    description: 'Enable debug mode'
+    default: 'true'
+  devMode:
+    description: 'Enable development mode'
+    default: 'true'
+
+runs:
+  using: node16
+  main: './dist/index.js'
