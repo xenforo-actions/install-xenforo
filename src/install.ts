@@ -7,6 +7,8 @@ import * as fs from "fs/promises";
 import * as io from '@actions/io';
 import {InstallCommand} from "./installCommand";
 import * as glob from '@actions/glob';
+import jetpack from "fs-jetpack";
+import * as path from "path";
 
 export async function installXenForo() {
     const globber = await glob.create(core.getInput('path'), {
@@ -32,8 +34,15 @@ async function downloadAndExtractDistro() {
     })
 
     await decompress(resp.data, '.')
-    await exec('mv upload/* .')
-    // await io.mv('upload/*', '.')
+
+    // I think there is a way to make it less dumb, but not now
+    const src = jetpack.cwd(path.join(process.cwd(), 'upload'))
+    const dst = jetpack.cwd(process.cwd())
+    let files = await src.findAsync({ directories: true, recursive: true })
+    files.forEach(filePath => {
+        src.move(filePath, dst.path(filePath))
+    })
+
     await io.rmRF('upload')
 }
 
