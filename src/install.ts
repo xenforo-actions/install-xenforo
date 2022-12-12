@@ -9,7 +9,7 @@ import {InstallCommand} from "./installCommand";
 
 export async function installXenForo() {
     const installationPath = core.getInput('path')
-    await exec('cd ' + installationPath)
+    process.chdir(installationPath)
 
     await downloadAndExtractDistro()
     await generateAndWriteConfig()
