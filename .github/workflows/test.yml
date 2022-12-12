@@ -33,7 +33,7 @@ jobs:
         with:
           distUrl: ${{ secrets.XF_DISTRO }}
           password: 123123
-          dbUser: xenforo
+          dbUsername: xenforo
           dbPassword: xenforo
           dbName: xenforo
 
