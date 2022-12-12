@@ -6,10 +6,19 @@ import {Config} from "./config";
 import * as fs from "fs/promises";
 import * as io from '@actions/io';
 import {InstallCommand} from "./installCommand";
+import * as glob from '@actions/glob';
 
 export async function installXenForo() {
-    const installationPath = core.getInput('path')
-    process.chdir(installationPath)
+    const globber = await glob.create(core.getInput('path'), {
+        matchDirectories: true
+    })
+    const installDir = (await globber.glob())[0]
+    if (!installDir)
+    {
+        throw new Error("Invalid installation path")
+    }
+
+    process.chdir(installDir)
 
     await downloadAndExtractDistro()
     await generateAndWriteConfig()
