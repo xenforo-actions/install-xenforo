@@ -40,7 +40,6 @@ async function downloadAndExtractDistro() {
     const dst = jetpack.cwd(process.cwd())
     let files = await src.findAsync('.')
     for (const filePath of files) {
-        core.info(filePath)
         await src.moveAsync(filePath, dst.path(filePath))
     }
 
@@ -49,7 +48,7 @@ async function downloadAndExtractDistro() {
 
 async function generateAndWriteConfig() {
     await fs.writeFile(
-        '/src/config.php',
+        path.join(process.cwd(), 'src', 'config.php'),
         Config.fromInput().toString()
     )
 }
