@@ -38,7 +38,7 @@ async function downloadAndExtractDistro() {
     // I think there is a way to make it less dumb, but not now
     const src = jetpack.cwd(path.join(process.cwd(), 'upload'))
     const dst = jetpack.cwd(process.cwd())
-    let files = await src.findAsync({ directories: true })
+    let files = await src.findAsync()
     files.forEach(filePath => {
         core.info(filePath)
         src.move(filePath, dst.path(filePath))
