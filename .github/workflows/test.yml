@@ -25,6 +25,9 @@ jobs:
             sleep 1
           done
 
+      - name: Create XenForo installation directory
+        run: mkdir ~/xenforo/
+
       - name: Install XenForo
         uses: ./
         with:
