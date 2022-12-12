@@ -29,10 +29,10 @@ export async function installXenForo() {
 async function downloadAndExtractDistro() {
     const distUrl = core.getInput('distUrl')
     const resp = await axios.get(distUrl, {
-        responseType: "blob"
+        responseType: "arraybuffer"
     })
 
-    await decompress(Buffer.from(resp.data), '.')
+    await decompress(resp.data, '.')
     await io.mv('upload/*', '.')
     await io.rmRF('upload')
 }
