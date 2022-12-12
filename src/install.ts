@@ -7,6 +7,7 @@ import * as fs from "fs/promises";
 import * as io from '@actions/io';
 import {InstallCommand} from "./installCommand";
 import * as glob from '@actions/glob';
+import {Buffer} from "buffer";
 
 export async function installXenForo() {
     const globber = await glob.create(core.getInput('path'), {
@@ -31,7 +32,7 @@ async function downloadAndExtractDistro() {
         responseType: "blob"
     })
 
-    await decompress(resp.data, '.')
+    await decompress(Buffer.from(resp.data), '.')
     await io.mv('upload/*', '.')
     await io.rmRF('upload')
 }
