@@ -17,11 +17,11 @@ export class InstallCommand {
         return [
             'cmd.php',
             'xf:install',
-            `--user="${this.adminUser.username}"`,
-            `--password="${this.adminUser.password}"`,
+            `--user=${this.adminUser.username}`,
+            `--password=${this.adminUser.password}`,
             `--email=${this.adminUser.email}`,
-            `--title="${this.boardTitle}"`,
-            `--url="${this.boardUrl}"`,
+            `--title=${this.boardTitle}`,
+            `--url=${this.boardUrl}`,
             '--skip-statistics'
         ]
     }
